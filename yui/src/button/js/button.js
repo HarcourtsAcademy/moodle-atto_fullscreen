@@ -112,6 +112,9 @@ Y.namespace('M.atto_fullscreen').Button = Y.Base.create('button', Y.M.editor_att
         window.scroll(this._background.getX(), this._background.getY());
 
         host._wrapper.setStyles({
+            "z-index": "100", // Academy Patch M#064
+            "min-height": "100%", // Academy Patch M#064
+            "background-color": "white", // Academy Patch M#064 
             "maxWidth": "100%",
             "width": "100%",
             "top": 0
@@ -139,7 +142,8 @@ Y.namespace('M.atto_fullscreen').Button = Y.Base.create('button', Y.M.editor_att
 
         // Set dimensions for htmlplus textarea to match if installed.
         host.toolbar.ancestor().ancestor().all('.CodeMirror-wrap').setStyles({
-            "padding": host.textarea.getStyle('padding'),
+            "z-index": "101", // Academy Patch M#064 
+            //"padding": host.textarea.getStyle('padding'), // Academy Patch M#064
             "margin": host.textarea.getStyle('margin'),
             "left": host.textarea.getStyle('left'),
             "top": host.textarea.getStyle('top'),
