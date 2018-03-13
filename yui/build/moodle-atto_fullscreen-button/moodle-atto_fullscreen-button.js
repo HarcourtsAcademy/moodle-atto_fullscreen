@@ -46,7 +46,7 @@ Y.namespace('M.atto_fullscreen').Button = Y.Base.create('button', Y.M.editor_att
             callback: this._toggle
         });
         var host = this.get('host');
-        button.set('title', M.util.get_string('fullscreen:desc', 'editor_tinymce'));
+        button.set('title', M.util.get_string('pluginname', 'atto_fullscreen'));
 
         // In fullscreen mode the editor uses fixed positioning with a empty div for a background
         this._background = Y.Node.create('<div style="position: relative"></div>');
@@ -114,9 +114,9 @@ Y.namespace('M.atto_fullscreen').Button = Y.Base.create('button', Y.M.editor_att
         window.scroll(this._background.getX(), this._background.getY());
 
         host._wrapper.setStyles({
-            "z-index": "100",
-            "min-height": "100%",
-            "background-color": "white",
+            "z-index": "100", // Academy Patch M#064
+            "min-height": "100%", // Academy Patch M#064
+            "background-color": "white", // Academy Patch M#064
             "maxWidth": "100%",
             "width": "100%",
             "top": 0
@@ -144,8 +144,8 @@ Y.namespace('M.atto_fullscreen').Button = Y.Base.create('button', Y.M.editor_att
 
         // Set dimensions for htmlplus textarea to match if installed.
         host.toolbar.ancestor().ancestor().all('.CodeMirror-wrap').setStyles({
-            "z-index": "101",
-            //"padding": host.textarea.getStyle('padding'),
+            "z-index": "101", // Academy Patch M#064
+            //"padding": host.textarea.getStyle('padding'), // Academy Patch M#064
             "margin": host.textarea.getStyle('margin'),
             "left": host.textarea.getStyle('left'),
             "top": host.textarea.getStyle('top'),
